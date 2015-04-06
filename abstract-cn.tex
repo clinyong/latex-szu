@@ -1,0 +1,32 @@
+\phantomsection % 让加入的目录带超链接
+\addcontentsline{toc}{section}{摘要} % 在目录中显示摘要
+%========================================
+% 中文摘要
+\renewcommand\abstractname{{\fontsize{18}{21.6} \selectfont \CJKfamily{ZS} 论文题目}}
+\begin{abstract}
+
+\begin{spacing}{2}
+
+\centerline{{\fontsize{10.5}{10.5} \selectfont \CJKfamily{KT} xxxxxx \hspace{2pt} xxxx}}
+
+\centerline{{\fontsize{9}{9} \selectfont \CJKfamily{KT} 学号：xxxxxx}}
+
+\end{spacing}
+
+\vspace{1em}
+
+\begin{spacing}{1.3}
+{\fontsize{12}{12} \selectfont \CJKfamily{KT} \textbf{【摘要】}}
+{\fontsize{10.5}{10.5} \selectfont \CJKfamily{KT}
+RSS的全称是Really Simple Syndication，是一种透过XML（eXtensible Markup Language）特性所制定的格式，让网站的管理者可以把网页内容传给订阅用户。这是个有点像电子报和新闻群组的东西，但是赋予读者更大的自定力。利用RSS订阅博客，新闻，社交评论后，会自动在客户端接收新消息，而不用每个站点都去查看消息了，这样子可以大大提高阅读效率，专注于阅读。本项目基于Web端，免去了安装各类型客户端的繁琐，更好地实现跨平台地使用。通过接入Pocket和印象笔记，用户能够将自己感兴趣地文章保存起来。
+}
+
+\vspace{1em}
+
+{\fontsize{12}{12} \selectfont \CJKfamily{KT} \textbf{【关键词】}}
+{\fontsize{10.5}{10.5} \selectfont \CJKfamily{KT}
+RSS；HTTP；Python；MongoDB；OAuth
+}
+\end{spacing}
+
+\end{abstract}

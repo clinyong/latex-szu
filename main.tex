@@ -1,0 +1,47 @@
+%========================================
+%	深圳大学本科生论文LaTeX模板
+%	By Leo
+%	Email:	clinyong@gmail.com
+%========================================
+
+\documentclass[10pt, a4paper]{article}
+\input{preamble.tex}
+\begin{document}
+
+%================== 目录 =================
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+%================== 中文摘要 ============
+% 从本页开始编页码
+
+\cfoot{\textcolor{gray}{第 \thepage 页 \hspace{2pt} 共 \pageref{LastPage} 页}}
+
+\pagenumbering{arabic}
+\input{abstract-cn.tex}
+
+%================== 前言  ================
+\input{preface.tex}
+
+%=================== 论文正文 =============
+\input{mainbody.tex}
+
+%=================== 结论 ===============
+\input{conclusion.tex}
+\newpage
+
+%==================== 参考文献 ===========
+
+\input{references.tex}
+\newpage
+
+%==================== 致谢  =============
+\input{acknowlegements.tex}
+\newpage
+
+%==================== 英文摘要 ===============
+\input{abstract-en.tex}
+
+\end{document}
+
