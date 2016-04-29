@@ -1,21 +1,27 @@
 %========================================
 %		Packages used in this template
-\usepackage{xeCJK}			% 中文支持
+\usepackage[UTF8]{ctex}			% 中文支持
 \usepackage{fontspec}
 \usepackage{pdfpages}		% 插入pdf
 \usepackage{graphicx}		% 图形支持
+\usepackage{subfigure}  % 子图支持
+\usepackage{float}
 \usepackage{amssymb, amsmath}	% 数学符号
 \usepackage{fancyhdr}		% 页眉设置
 \usepackage{lastpage}       % 引用最后一页，即算出总页数
 \usepackage{cite}			% 引用文献
 \usepackage{indentfirst}	% 首行缩进
-\usepackage[]{hyperref}		% 让tableofcontents支持超链接
+\usepackage{color}
+\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}		% 让tableofcontents支持超链接
+%\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}% 论文提交前把超链接颜色改为黑色，除参考文献
 \usepackage[top=1in,bottom=1in,left=1.4in,right=1.2in]{geometry}	% 设置页边距
 \usepackage{booktabs}       % 增加表格效果
 \usepackage{listings} %插入代码块
 \usepackage{setspace} % 调整行距
 \usepackage{url}      % 参考文献引用网页
 %\usepackage[top=0.8in,bottom=0.8in,left=1.2in,right=0.6in]{geometry}  %设置页边距(学校的要求)
+
+\usepackage{enumerate}%编号支持
 
 %========================================
 %		Settings
@@ -31,6 +37,35 @@
 \setlength{\parskip}{0.6\baselineskip} % 设置段间距离
 \renewcommand{\baselinestretch}{1.3} % 设置行间距离
 
+%-----代码块格式设置，C++--------%
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C++,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  numbers=left,                                        % 在左侧显示行号
+  numberstyle=\footnotesize\color{darkgray},           % 设定行号格式
+  backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+  showstringspaces=false,                              % 不显示字符串中的空格
+}
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+\lstset{escapechar=@,style=customc}
+%-----代码块格式设置结束--------%
+
 %========================================
 %		Redefine commands
 \renewcommand\abstractname{\Large \bfseries \CJKfamily{ZenHei}摘\ 要}		% 摘要 ,
@@ -40,6 +75,10 @@
 \renewcommand\contentsname{\centerline{\CJKfamily{ZenHei} 目录}}	%目录居中
 \renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}	%中文日期
 %\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+\makeatletter %将文献引用作为上标出现,增加括号
+\def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
+\makeatother
 
 %========================================
 %		Header Settings
