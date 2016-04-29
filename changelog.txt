@@ -1,0 +1,21 @@
+2016.04.29
+
+main.tex
+增加用Sublime编译时自动选择XeLaTex作为编译器
+
+preamble.tex
+1、更改中文支持为CTex
+2、增加图片支持子图
+3、增加交叉引用颜色修改选项
+4、增加C++代码块自定义格式
+5、增加编号支持
+6、更改文献引用作为上标出现
+
+preface.tex & mainbody.tex
+增加引用时自动弹出引用列表，即
+当输入 \cite{ 时会自动弹出引用列表供选择
+
+references.tex
+更改文献引用格式为GBT7714-2005
+详情参见GBT7714-2005-BibTeX-Style
+https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style
