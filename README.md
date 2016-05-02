@@ -52,4 +52,6 @@ $ sudo tlmgr install latexmk lastpage
 
 到这里编译工作就算完成了，不过还可以再安装一个软件 [Skim](http://skim-app.sourceforge.net/)，用于编译后立即预览 pdf 文件。一般直接安装就可以了，不过这里我们还想设置一下反向搜索，所以打开 Skim，选择 `选项 ｜ 同步`，在预设里面选择 `Sublime Text`。然后再用 Skim 重新打开我们的 pdf 文件，按住 `command + shift` 的同时用鼠标点击正文的任意一处，就可以很方便地跳回到我们的 LaTex 源码了。
 
+## TODO
 
+- 将 xeCJK 更换为 CTeX
