@@ -1,22 +1,106 @@
 %========================================
 %		Packages used in this template
 \usepackage{xeCJK}			% 中文支持
+\usepackage{titlesec}  %用于修改英文章节为中文章节等
+%\titleformat{\section}[block]{\large\bf}{\thesection}{10pt}{}  
 \usepackage{fontspec}
+\usepackage[justification=centering]{caption} %让figure的标题居中
+\usepackage{underscore}     % 处理下划线
 \usepackage{pdfpages}		% 插入pdf
 \usepackage{graphicx}		% 图形支持
 \usepackage{amssymb, amsmath}	% 数学符号
 \usepackage{fancyhdr}		% 页眉设置
 \usepackage{lastpage}       % 引用最后一页，即算出总页数
 \usepackage{cite}			% 引用文献
+%%%%%%%%%%%%%%%%%%  上角标引用并加括号命令  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
+\makeatother
+%%%%%%%%%%%%%%%%%%  上角标引用并加括号命令  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \usepackage{indentfirst}	% 首行缩进
 \usepackage[]{hyperref}		% 让tableofcontents支持超链接
-\usepackage[top=1in,bottom=1in,left=1.4in,right=1.2in]{geometry}	% 设置页边距
+%\usepackage[top=1in,bottom=1in,left=1.4in,right=1.2in]{geometry}	% 设置页边距
 \usepackage{booktabs}       % 增加表格效果
 \usepackage{listings} %插入代码块
+% listings 源代码显示宏包
+\usepackage{listings}
+
+\lstset{
+%language={[ISO]C++},       %language为，还有{[Visual]C++}  
+%alsolanguage=[ANSI]C,      %可以添加很多个alsolanguage,如alsolanguage=matlab,alsolanguage=VHDL等  
+%alsolanguage= tcl,  
+%alsolanguage= XML,  
+tabsize=4, %  
+  %frame=single,%普通边框   shadowbox, %把代码用带有阴影的框圈起来  
+  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释  
+  %rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色  
+  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体  
+  showstringspaces=false,%不显示代码字符串中间的空格标记  
+  stringstyle=\ttfamily, % 代码字符串的特殊格式  
+  keepspaces=true, %  
+  breakindent=22pt, % 
+  numbers=none,%left,左侧显示行号 往左靠,还可以为right，或none，即不加行号  
+  %stepnumber=1,%若设置为2，则显示行号为1,3,5，即stepnumber为公差,默认stepnumber=1  
+  %numberstyle=\tiny, %行号字体用小号  
+  %numberstyle={\scriptsize} ,%设置行号的大小，大小有tiny,scriptsize,footnotesize,small,normalsize,large等  
+  %numbersep=8pt,  %设置行号与代码的距离，默认是5pt  
+  basicstyle=\ttfamily, %\footnotesize. % 这句设置代码的大小  
+  showspaces=false, %  
+  %flexiblecolumns=true, %  
+  breaklines=true, %对过长的代码自动换行  
+  breakautoindent=true,%  
+  breakindent=4em, %  
+  %saboveskip=1em, %代码块边框  
+  tabsize=2,  
+  showstringspaces=false, %不显示字符串中的空格  
+  %backgroundcolor=\color[RGB]{245,245,244},   %代码背景色  
+  %backgroundcolor=\color[rgb]{0.91,0.91,0.91}    %添加背景色  
+  %escapeinside=``,  %在``里显示中文  
+  %% added by http://bbs.ctex.org/viewthread.php?tid=53451  
+  fontadjust,  
+  %captionpos=t,  
+  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,  
+  xleftmargin=0em,xrightmargin=0em, % 设定listing左右的空白  xleftmargin=2em xrightmargin=2em
+  %texcl=true,  
+  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式  
+  %extendedchars=false,columns=flexible,mathescape=true  
+  % numbersep=-1em  
+  %% tabsize=4, %
+  %frame=shadowbox, %把代码用带有阴影的框圈起来
+  %commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+  %%rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+  %%keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+  %showstringspaces=false,%不显示代码字符串中间的空格标记
+  %%stringstyle=\ttfamily, % 代码字符串的特殊格式
+  %%keepspaces=true, %
+  %%breakindent=22pt, %
+  %numbers=left,%左侧显示行号
+  %stepnumber=1,%
+  %numberstyle=\tiny, %行号字体用小号
+  %%basicstyle=\footnotesize, %
+  %showspaces=false, %
+  %%flexiblecolumns=true, %
+  %breaklines=true, %对过长的代码自动换行
+  %%breakautoindent=true,%
+  %%breakindent=4em, %
+  %%escapebegin=\begin{CJK*}{GBK}{hei},escapeend=\end{CJK*},
+  %aboveskip=1em, %代码块边框
+  %%%% added by http://bbs.ctex.org/viewthread.php?tid=53451
+  %fontadjust,
+  %%captionpos=t,
+  %%framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
+  %xleftmargin=4em,xrightmargin=4em % 设定listing左右的空白
+  %%texcl=true,
+  %%% 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
+  %%extendedchars=false,columns=flexible,mathescape=true
+  %%% numbersep=-1em
+}
 \usepackage{setspace} % 调整行距
 \usepackage{url}      % 参考文献引用网页
 %\usepackage[top=0.8in,bottom=0.8in,left=1.2in,right=0.6in]{geometry}  %设置页边距(学校的要求)
-
+\usepackage[top=1in,bottom=1in,left=1.4in,right=1.2in]{geometry}
 %========================================
 %		Settings
 \setmainfont{Times New Roman} % 英文字体样式
@@ -33,20 +117,31 @@
 
 %========================================
 %		Redefine commands
-\renewcommand\abstractname{\Large \bfseries \CJKfamily{ZenHei}摘\ 要}		% 摘要 ,
+\newcommand{\chapter}{第\CJKnumber{\chaptertitlename}章}  
+%\titleformat{\chapter}[hang]{\vspace{-2.5cm}\centering}{\sanhao 第 \chaptertitlename 章 \,}{1em}{\sanhao\hei}[\vspace{-10mm}]
+\renewcommand\appendix{\setcounter{secnumdepth}{-2}}
+\newcommand{\sectionname}{节}   
+\renewcommand{\appendix}{附~录}  
+\renewcommand{\listfigurename}{图~目~录}  
+\renewcommand{\listtablename}{表~目~录}  
+\renewcommand{\indexname}{索~引}  
+%\newcommand{\keywords}[1]{\\ \\ \textbf{关~键~词}：#1}   段首空两格
+\newcommand{\keywords}[1]{\textbf{关~键~词}：#1}  
+%\titleformat{\chapter}[block]{\center\Large\bf}{\chaptertitlename}{20pt}{}  
+%\renewcommand\abstractname{\Large \bfseries \CJKfamily{ZenHei}摘\ 要}		% 摘要 空两格,
+\renewcommand\abstractname{\Large \CJKfamily{ZenHei}摘\ 要}   % 摘要 ,
 \renewcommand{\figurename}{\CJKfamily{ZenHei} 图} 			% 图
 \renewcommand{\tablename}{\CJKfamily{ZenHei} 表}            % 表
 \renewcommand\refname{{\fontsize{10.5}{12.6} \selectfont \CJKfamily{KT} \textbf{【参考文献】}}} % 参考文献
-\renewcommand\contentsname{\centerline{\CJKfamily{ZenHei} 目录}}	%目录居中
+\renewcommand\contentsname{\centerline{\CJKfamily{ZenHei} 目~录}}	%目录居中
 \renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}	%中文日期
 %\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 
 %========================================
 %		Header Settings
 \pagestyle{fancy}			%
-\chead{\textcolor{gray}{\small{深圳大学本科毕业论文——xxxxx}}}	% 页眉中部
+\chead{\textcolor{gray}{\small{深圳大学本科毕业论文——}}}	% 页眉中部
 \lhead{}		% 页眉左部，设为空
 \rhead{}		% 页眉右部，设为空
 
 %========================================
-
